@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
@@ -14,12 +15,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.insuingae.R;
+import com.example.insuingae.adapter.TodoAdapter;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 
 public class ToDoFragment extends Fragment {
     private RecyclerView recyclerView;
-    private RecyclerView.LayoutManager layoutManager;
-
+    Context context;
 
     public ToDoFragment() {
     }
@@ -28,14 +30,21 @@ public class ToDoFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("test", "frag1 실행");
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_to_do, container, false);
-        return view;
+        ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_to_do, container, false);
+        Log.d("test", "frag1 실행");
+        recyclerView = viewGroup.findViewById(R.id.recyclerView);
+        //FloatingActionButton floatingActionButton = viewGroup.findViewById(R.id.floatingActionButton).setOnClickListener();
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        TodoAdapter adapter = new TodoAdapter();
+        recyclerView.setAdapter(adapter);
+        return viewGroup;
     }
 
 
@@ -43,6 +52,7 @@ public class ToDoFragment extends Fragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
+        this.context = context;
 
     }
 

@@ -44,8 +44,22 @@ public class ToDoFragment extends Fragment {
         //FloatingActionButton floatingActionButton = viewGroup.findViewById(R.id.floatingActionButton).setOnClickListener();
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        TodoAdapter adapter = new TodoAdapter();
+        TodoAdapter adapter = new TodoAdapter(getActivity());
         adapter.addItem(new Insus("test", "ddd", "ddd", new Date(), true));
+        adapter.addItem(new Insus("test", "ddd", "ddd", new Date(), true));
+        adapter.addItem(new Insus("test", "ddd", "ddd", new Date(), true));
+        adapter.addItem(new Insus("test", "ddd", "ddd", new Date(), true));
+        adapter.addItem(new Insus("test", "ddd", "ddd", new Date(), true));
+        adapter.addItem(new Insus("test", "ddd", "ddd", new Date(), true));
+        adapter.addItem(new Insus("test", "ddd", "ddd", new Date(), true));
+        adapter.addItem(new Insus("test", "ddd", "ddd", new Date(), true));
+        adapter.addItem(new Insus("test", "ddd", "ddd", new Date(), true));
+        adapter.addItem(new Insus("test", "ddd", "ddd", new Date(), true));
+        adapter.addItem(new Insus("test", "ddd", "ddd", new Date(), true));
+        adapter.addItem(new Insus("test", "ddd", "ddd", new Date(), true));
+        adapter.addItem(new Insus("test", "ddd", "ddd", new Date(), true));
+        adapter.addItem(new Insus("test", "ddd", "ddd", new Date(), true));
+
         recyclerView.setAdapter(adapter);
         return viewGroup;
     }

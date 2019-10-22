@@ -11,14 +11,13 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         mAuth = FirebaseAuth.getInstance();
 
-    /*    findViewById(R.id.login_button).setOnClickListener(onClickListener);
+        findViewById(R.id.login_button).setOnClickListener(onClickListener);
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -31,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
                         break;
                 }
             }
-        };*/
+        };
 
 
 

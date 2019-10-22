@@ -4,11 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+
 import android.view.MenuItem;
 
 
@@ -17,6 +16,8 @@ import com.example.insuingae.fragment.CompleteFragment;
 import com.example.insuingae.fragment.LastFragment;
 import com.example.insuingae.fragment.ToDoFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
     ToDoFragment todofragment;
@@ -27,7 +28,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (firebaseUser == null) {
+            myStartActivity(SignUpActivity.class);
+        }
         todofragment= new ToDoFragment();
         completeFragment = new CompleteFragment();
         lastFragment = new LastFragment();
@@ -67,6 +71,10 @@ public class MainActivity extends AppCompatActivity {
         if(actionBar != null){
             actionBar.setTitle(title);
         }
+    }
+    private void myStartActivity(Class c) {
+        Intent intent = new Intent(this, c);
+        startActivityForResult(intent, 1);
     }
 
 

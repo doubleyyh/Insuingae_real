@@ -43,7 +43,7 @@
             android:inputType="textPersonName" />
 
         <Button
-            android:id="@+id/signup_button"
+            android:id="@+id/write_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="회원가입" />

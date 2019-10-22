@@ -14,9 +14,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.insuingae.Insus;
 import com.example.insuingae.R;
 import com.example.insuingae.adapter.TodoAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.Date;
 
 
 public class ToDoFragment extends Fragment {
@@ -43,6 +46,7 @@ public class ToDoFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         TodoAdapter adapter = new TodoAdapter();
+        adapter.addItem(new Insus("test", "ddd", "ddd", new Date(), true));
         recyclerView.setAdapter(adapter);
         return viewGroup;
     }

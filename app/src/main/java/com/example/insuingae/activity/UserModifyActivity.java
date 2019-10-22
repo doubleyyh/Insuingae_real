@@ -1,7 +1,9 @@
 package com.example.insuingae.activity;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -38,6 +40,9 @@ public class UserModifyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_info_init);
+        Toolbar myToolbar = findViewById(R.id.include);
+        setSupportActionBar(myToolbar);
+        setToolbar("회원 정보 수정");
         userNameEditext = findViewById(R.id.userName_editText);
         sosockEditText = findViewById(R.id.sosock_EditText);
         gunbunEditText = findViewById(R.id.gunbun_editText);
@@ -112,5 +117,11 @@ public class UserModifyActivity extends AppCompatActivity {
                         loaderlayout.setVisibility(View.GONE);
                     }
                 });
+    }
+    public void setToolbar(String title){
+        ActionBar actionBar = getSupportActionBar();
+        if(actionBar != null){
+            actionBar.setTitle(title);
+        }
     }
 }

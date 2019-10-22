@@ -1,7 +1,9 @@
 package com.example.insuingae.activity;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -27,6 +29,9 @@ public class UserInfoInitActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Toolbar myToolbar = findViewById(R.id.include);
+        setSupportActionBar(myToolbar);
+        setToolbar("회원 정보 입력");
         user= FirebaseAuth.getInstance().getCurrentUser();
         setContentView(R.layout.activity_user_info_init);
         loaderLayout = findViewById(R.id.loaderLayout);
@@ -73,8 +78,11 @@ public class UserInfoInitActivity extends AppCompatActivity {
                     }
                 });
     }
-    private void myStartActivity(Class c) {
-        Intent intent = new Intent(this, c);
-        startActivityForResult(intent, 0);
+
+    public void setToolbar(String title){
+        ActionBar actionBar = getSupportActionBar();
+        if(actionBar != null){
+            actionBar.setTitle(title);
+        }
     }
 }
